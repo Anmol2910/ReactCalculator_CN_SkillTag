@@ -1,3 +1,5 @@
+// OperationButton component for rendering operation buttons
+
 import { ACTIONS } from "./utils/constants";
 
 const OperationButton = ({ operator, dispatch }) => {

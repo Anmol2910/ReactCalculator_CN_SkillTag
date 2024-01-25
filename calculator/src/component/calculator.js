@@ -1,3 +1,5 @@
+// Import necessary dependencies and styles
+
 import { useReducer } from "react";
 
 import style from "../styles/calculator.module.css";
@@ -6,9 +8,14 @@ import OperationButton from "./OperationButton";
 import { ACTIONS, INITIAL_STATE } from "./utils/constants";
 import { reducer } from "./utils/reducer";
 
+// Calculator component using useReducer
+
 const Calculator = () => {
+  // Use useReducer to manage state using the defined reducer
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   console.log("STATE", state);
+
+  // Destructure state for easy access
 
   const { previousOperand, operator, currentOperand, sign } = state;
   return (

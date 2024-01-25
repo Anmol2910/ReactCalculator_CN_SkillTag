@@ -1,4 +1,4 @@
-// action type for reducer
+// Constants for action types in the reducer
 export const ACTIONS = {
     ADD_DIGIT: "add-digit",
     CLEAR: "clear",
@@ -7,7 +7,7 @@ export const ACTIONS = {
     SIGN: "sign"
   };
   
-  // initial state for reducer
+ // Initial state for the reducer
   export const INITIAL_STATE = {
     previousOperand: "",
     currentOperand: "0",

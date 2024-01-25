@@ -1,12 +1,15 @@
 import { ACTIONS, INITIAL_STATE } from "./constants";
 import { evaluate } from "./evaluate";
 
-// reducer function for useReducer hook
+// Reducer function for useReducer hook
 export const reducer = (state = INITIAL_STATE, action) => {
-  // state destructuring
+  // State destructuring
   const { previousOperand, currentOperand, operator, sign } = state;
   switch (action.type) {
     case ACTIONS.ADD_DIGIT:
+      // Handle adding digits to the current operand
+      // Prevent multiple decimal points in the current operand
+      // Update current operand based on user input
       if (action.payload === "." && currentOperand.includes(".")) {
         return state;
       }
@@ -47,6 +50,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
       };
       
     case ACTIONS.SIGN:
+      // Handle toggling the sign of the current operand
       if (sign === "" || sign === "+") {
         return {
           ...state,
@@ -59,7 +63,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
         };
       }
       break;
-    // if equal-to button pressed then calculate the result
+     // Handle evaluating the result and updating the state accordingly
     case ACTIONS.EVALUATE:
       const result = evaluate(state);
       let singValue = "";
@@ -76,9 +80,10 @@ export const reducer = (state = INITIAL_STATE, action) => {
         operator: "",
         sign: singValue,
       };
-    // if clear button pressed return initial state
+     // Handle clearing the calculator and return the initial state
     case ACTIONS.CLEAR:
       return INITIAL_STATE;
+       // Default case: return the current state if the action type is not recognized
     default:
       return state;
   }

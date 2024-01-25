@@ -1,3 +1,5 @@
+// Function to evaluate the result based on the current state and operator
+
 export const evaluate = ({ previousOperand, currentOperand, operator }) => {
     const prev = parseFloat(previousOperand);
     const current = parseFloat(currentOperand);

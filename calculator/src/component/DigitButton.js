@@ -1,3 +1,5 @@
+// DigitButton component for rendering digit buttons
+
 import { ACTIONS } from "./utils/constants";
 
 const DigitButton = ({ digit, dispatch }) => {
